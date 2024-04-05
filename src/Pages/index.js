@@ -19,18 +19,19 @@ function Home() {
           }
         }
       );
-      console.log(response.data)
       setData(response.data)
     } catch (error) {
       console.error('Error fetching product:', error);
     }
   };
+  const deleteProduct = () => {
+    setRefresh(true)
+  }
   const handlePageChange = (page) => {
     setOffset(page);
     setRefresh(true)
   };
   const [totalPages, setTotalPages] = useState('')
-  const [totalCount, setTotalCount] = useState(1)
   const handlePrevChange = () => {
     if (offset === 1) {
       setOffset(1)
@@ -61,7 +62,7 @@ function Home() {
       <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4'>
         {data && data.map((val, index) => (
           <div key={index}>
-            <Card id={val.id} title={val.title} price={val.price} description={val.description} category={val.category} images={val.images} />
+            <Card id={val.id} title={val.title} price={val.price} description={val.description} category={val.category} images={val.images} deleteProduct={deleteProduct} />
           </div>
         ))}
       </div>

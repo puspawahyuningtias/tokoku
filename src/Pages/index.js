@@ -3,6 +3,7 @@ import Navbar from '../Components/navbar'
 import Card from '../Components/card'
 import instance from '../Utils';
 import Pagination from '../Components/pagination';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [refresh, setRefresh] = useState(false)
@@ -54,6 +55,9 @@ function Home() {
   return (
     <div className='m-5 space-y-3'>
       <Navbar SubNavbar={false} NameSubNavbar={'Home'} LinkBack={'/'} />
+      <Link to={"/create"} className='bg-[#015995] py-2 px-4 rounded-[10px] flex items-center justify-center gap-[16px] w-[86px]'>
+        <h1 className='text-[#EDEDED] text-sm font-[500]'>Tambah</h1>
+      </Link>
       <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4'>
         {data && data.map((val, index) => (
           <div>

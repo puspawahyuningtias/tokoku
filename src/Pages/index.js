@@ -60,8 +60,8 @@ function Home() {
       </Link>
       <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4'>
         {data && data.map((val, index) => (
-          <div>
-            <Card title={val.title} price={val.price} description={val.description} category={val.category} images={val.images} />
+          <div key={index}>
+            <Card id={val.id} title={val.title} price={val.price} description={val.description} category={val.category} images={val.images} />
           </div>
         ))}
       </div>
